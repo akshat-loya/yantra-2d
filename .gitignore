@@ -1,0 +1,29 @@
+# Build directories
+/build/
+/out/
+/cmake-build-*/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# macOS
+.DS_Store
+*.dSYM/
+
+# Compiled objects
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.exe
+
+# Editor / IDE
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
