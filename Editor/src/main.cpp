@@ -1,15 +1,15 @@
 #include <iostream>
+#include <iomanip>
 
-#include "Engine.h"
+#include "math/Vector.h"
+#include "math/Line.h"
+#include "math/Plane.h"
+#include "core/Engine.h"
 
 int main()
 {
-    std::cout << "yantra-2d Engine is running..." << std::endl;
+    Engine test;
+    test.initialise();
 
-    {
-        Engine n;
-    }
-    
-    std::cin.get();
     return 0;
 }
