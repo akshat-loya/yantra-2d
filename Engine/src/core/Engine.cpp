@@ -5,9 +5,45 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
+
 #include "Engine.h"
 
-unsigned int Engine::compileShader(unsigned int type, const std::string& source)
+struct shaderCode
+{
+    std::string vertexShader;
+    std::string fragmentShader;
+};
+
+static shaderCode fetchShaders()
+{
+    std::ifstream stream("Shaders/Fragment.shader");
+    std::string line;
+    shaderCode res;
+    std::stringstream ss;
+
+    while(std::getline(stream, line))
+    {
+        ss << line << "\n";
+    }
+
+    res.fragmentShader = ss.str();
+
+    stream = std::ifstream("Shaders/Vertex.shader");
+    ss.str("");
+    ss.clear();
+    while(std::getline(stream, line))
+    {
+        ss << line << "\n";
+    }
+
+    res.vertexShader = ss.str();
+
+    return res;
+}
+
+static unsigned int compileShader(unsigned int type, const std::string& source)
 /* ===============================
  *
  * To compile the shader source code
@@ -36,7 +72,7 @@ unsigned int Engine::compileShader(unsigned int type, const std::string& source)
     return id;
 }
 
-unsigned int Engine::createShader(const std::string& vertexShader, const std::string& fragmentShader)
+static unsigned int createShader(const std::string& vertexShader, const std::string& fragmentShader)
 /* ==============================
  *
  * To provide OpenGL with actual shader source code
@@ -111,28 +147,9 @@ int Engine::initialise()
     glVertexAttribPointer(0, 2, GL_DOUBLE, GL_FALSE, 2 * sizeof(double), 0);
 
     // Basic vertex shader
-    std::string vertexShader = 
-        "#version 330 core\n"
-        "\n"
-        "layout(location = 0) in vec4 position;\n"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position = position;\n"
-        "}\n";
-
     // Basic fragment shader
-    std::string fragmentShader = 
-        "#version 330 core\n"
-        "\n"
-        "layout(location = 0) out vec4 color;\n"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-        "}\n";
-
-    unsigned int shader = createShader(vertexShader, fragmentShader);
+    shaderCode sc = fetchShaders();
+    unsigned int shader = createShader(sc.vertexShader, sc.fragmentShader);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
