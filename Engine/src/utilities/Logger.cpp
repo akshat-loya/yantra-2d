@@ -5,6 +5,11 @@
  * ====================================================================
  */
 
+// TODO logger to accept multiple arguments using variadic templates
+// TODO Think about making it a header style library or keeping the cpp
+// TODO Compile time and release build stripping of messages
+// TODO Segregation of engine vs editor logs
+
 #include <iostream>
 #include <chrono>
 #include <ctime>
