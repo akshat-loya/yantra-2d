@@ -18,10 +18,10 @@ public:
         normal = norm.unitVec();
     }
 
-    // TODO intersection of two planes
-    // TODO distance between two planes
-    // TODO distance between a line and a plane
-    // TODO distance between a point and a plane
-    // TODO parallel plane check
-    // TODO orthogonal plane check
+    // TODO : intersection of two planes
+    // TODO : distance between two planes
+    // TODO : distance between a line and a plane
+    // TODO : distance between a point and a plane
+    // TODO : parallel plane check
+    // TODO : orthogonal plane check
 };

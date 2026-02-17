@@ -5,6 +5,7 @@
  * ====================================================================
  */
 
+ // XXX : Read about #pragma once
 #pragma once
 
 #include <cmath>

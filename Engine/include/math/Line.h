@@ -18,8 +18,8 @@ public:
         direction = dir.unitVec();
     }
 
-    // TODO intersection of two line
-    // TODO distance of a point from a line (here or where?)
-    // TODO distance between two lines?
-    // TODO is_parallel/is_perpendicular/is_orthogonal check?
+    // TODO : intersection of two line
+    // TODO : distance of a point from a line (here or where?)
+    // TODO : distance between two lines?
+    // TODO : is_parallel/is_perpendicular/is_orthogonal check?
 };
